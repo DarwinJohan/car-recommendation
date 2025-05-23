@@ -114,24 +114,108 @@ else:
     corpus_embeddings = model.encode(df["description"].tolist(), convert_to_tensor=True)
     torch.save(corpus_embeddings, "embeddings.pt")
 
-# Extract filter dari input
 def extract_filters(text):
     filters = {}
     text = text.lower()
 
-    if "petrol" in text: filters["Fuel Type"] = "Petrol"
-    elif "diesel" in text: filters["Fuel Type"] = "Diesel"
-    elif "electric" in text: filters["Fuel Type"] = "Electric"
-    elif "cng" in text: filters["Fuel Type"] = "CNG"
+    # Fuel Type
+    for fuel in ["petrol", "diesel", "electric", "cng", "lpg"]:
+        if fuel in text:
+            filters["Fuel Type"] = fuel.capitalize()
+            break
 
-    if "automatic" in text: filters["Transmission"] = "Automatic"
-    elif "manual" in text: filters["Transmission"] = "Manual"
+    # Transmission
+    for trans in ["automatic", "manual"]:
+        if trans in text:
+            filters["Transmission"] = trans.capitalize()
+            break
 
+    # Seating Capacity
     match = re.search(r"(\d+)[ ]?seats?", text)
     if match:
         filters["Seating Capacity"] = int(match.group(1))
 
+    # Color
+    for color in df["Color"].dropna().unique():
+        if color.lower() in text:
+            filters["Color"] = color
+            break
+
+    # Owner
+    for owner in df["Owner"].dropna().unique():
+        if owner.lower() in text:
+            filters["Owner"] = owner
+            break
+
+    # Seller Type
+    for seller in df["Seller Type"].dropna().unique():
+        if seller.lower() in text:
+            filters["Seller Type"] = seller
+            break
+
+    # Drivetrain
+    for drive in df["Drivetrain"].dropna().unique():
+        if drive.lower() in text:
+            filters["Drivetrain"] = drive
+            break
+
+    # Location
+    for loc in df["Location"].dropna().unique():
+        if loc.lower() in text:
+            filters["Location"] = loc
+            break
+
+    # Make
+    for make in df["Make"].dropna().unique():
+        if make.lower() in text:
+            filters["Make"] = make
+            break
+
+    # Model
+    for model in df["Model"].dropna().unique():
+        if model.lower() in text:
+            filters["Model"] = model
+            break
+
+    # Engine (e.g., 1197 cc)
+    match = re.search(r"(\d{3,5})\s?cc", text)
+    if match:
+        filters["Engine"] = f"{match.group(1)} cc"
+
+    # Max Power (e.g., 83 bhp)
+    match = re.search(r"(\d{2,3})\s?bhp", text)
+    if match:
+        filters["Max Power"] = f"{match.group(1)} bhp"
+
+    # Max Torque (e.g., 113Nm)
+    match = re.search(r"(\d{2,4})\s?nm", text)
+    if match:
+        filters["Max Torque"] = f"{match.group(1)}Nm"
+
+    # Fuel Tank Capacity (e.g., 35 litres)
+    match = re.search(r"(\d{1,2})\s?(litres|liter|l)", text)
+    if match:
+        filters["Fuel Tank Capacity"] = float(match.group(1))
+
+    # Year
+    match = re.search(r"(19|20)\d{2}", text)
+    if match:
+        filters["Year"] = int(match.group(0))
+
+    # Kilometer (e.g., below 50000 km)
+    match = re.search(r"(?:under|less than|below|<)\s?([\d,\.]+)\s?(km|kilometers?)", text)
+    if match:
+        filters["Kilometer"] = int(re.sub(r"[^\d]", "", match.group(1)))
+
+    # Price (e.g., under Rp 1000000)
+    match = re.search(r"(?:under|below|less than|<)\s?rp[\s\.]?(?:[\d.,]+)", text)
+    if match:
+        price = re.sub(r"[^\d]", "", match.group(0))
+        if price:
+            filters["Price"] = int(price)
+
     return filters
+
 
 # Fungsi utama untuk rekomendasi
 def recommend_car(user_input, top_n=5):
