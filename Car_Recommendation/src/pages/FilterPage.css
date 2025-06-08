@@ -1,0 +1,300 @@
+/* Section Container */
+.recommendation-section {
+  padding: 5rem 1rem;
+  background-color: #111827;
+  min-height: 100vh;
+  color: #f3f4f6;
+  font-family: 'Inter', sans-serif;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Header */
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: white;
+}
+
+.section-title-highlight {
+  color: #38bdf8;
+}
+
+.section-subtitle {
+  color: #9ca3af;
+  margin-top: 1rem;
+  font-size: 1.125rem;
+}
+
+/* Form Controls */
+.recommendation-form {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  margin-bottom: 2rem;
+}
+
+.recommendation-select,
+.recommendation-input,
+.recommendation-dropdown {
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid #374151;
+  background-color: #1f2937;
+  color: #f3f4f6;
+  font-size: 1rem;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+.recommendation-select:focus,
+.recommendation-input:focus,
+.recommendation-dropdown:focus {
+  outline: none;
+  border-color: #38bdf8;
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.3);
+}
+
+/* Price Filter Wrapper */
+.price-filter-group {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.price-filter-group select,
+.price-filter-group input {
+  flex: 1;
+}
+
+/* Button */
+.recommendation-button {
+  display: inline-block;
+  background-color: #0ea5e9;
+  color: white;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 0.75rem 2rem;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+}
+
+.recommendation-button:hover {
+  background-color: #0284c7;
+  transform: scale(1.03);
+}
+
+.results-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(2, 1fr);
+  /* supaya 2 kartu per baris */
+}
+
+
+.car-card {
+  background-color: #1f2937;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  border: 1px solid #374151;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.car-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -5px rgba(56, 189, 248, 0.15), 
+              0 10px 10px -5px rgba(56, 189, 248, 0.08);
+}
+
+.car-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.25rem;
+  background-color: #374151;
+  border-bottom: 1px solid #4b5563;
+}
+
+.car-price {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #38bdf8;
+}
+
+.car-details {
+  padding: 1rem 1.25rem;
+}
+
+.car-detail {
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+  color: #d1d5db;
+}
+
+.car-detail:last-child {
+  margin-bottom: 0;
+}
+
+.car-card img {
+  width: 100%;
+  max-height: 180px;
+  object-fit: cover;
+  display: block;
+}
+
+.car-card {
+  background-color: #1f2937;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  border: 1px solid #374151;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 320px; /* fix tinggi box */
+}
+
+.car-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  display: block;
+  flex-shrink: 0;
+}
+
+.car-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  background-color: #374151;
+  border-bottom: 1px solid #4b5563;
+  height: 50px; /* fix tinggi header */
+  overflow: hidden;
+}
+
+.car-header h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: white;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; /* kasih ... kalau kepanjangan */
+  max-width: 70%; /* biar gak nutup price */
+}
+
+.car-price {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #38bdf8;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.car-details {
+  padding: 1rem;
+  flex-grow: 1;
+  color: #d1d5db;
+  font-size: 0.9rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.car-detail {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.car-card {
+  background-color: #1f2937;
+  border-radius: 0.75rem;
+  border: 1px solid #374151;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  height: 320px;  /* fixed height */
+  display: flex;
+  flex-direction: column;
+}
+
+.car-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.car-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  background-color: #374151;
+  border-bottom: 1px solid #4b5563;
+  height: 50px;
+  overflow: hidden;
+}
+
+.car-header h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: white;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; /* Ini yang memotong teks */
+  max-width: 70%;
+}
+
+.car-price {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #38bdf8;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.car-details {
+  padding: 1rem;
+  color: #d1d5db;
+  font-size: 0.9rem;
+  flex-grow: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.car-detail {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 0.3rem;
+}
+
+.recom-price {
+    margin-right: 100px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .recommendation-form {
+    grid-template-columns: 1fr;
+  }
+}

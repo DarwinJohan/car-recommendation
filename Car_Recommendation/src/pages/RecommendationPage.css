@@ -7,7 +7,7 @@
 .recommendation-input-group {
   max-width: 800px;
   margin: 0 auto 3rem;
-}
+} 
 
 .recommendation-textarea {
   width: 100%;
@@ -83,7 +83,6 @@
   margin-bottom: 0;
 }
 
-/* Menggunakan class yang sama dengan LandingPage untuk konsistensi */
 .section-header {
   text-align: center;
   margin-bottom: 4rem;
@@ -154,7 +153,6 @@
               0 10px 10px -5px rgba(0,0,0,0.1);
 }
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
   .section-title {
     font-size: 1.75rem;
@@ -167,4 +165,12 @@
   .results-grid {
     grid-template-columns: 1fr;
   }
+} 
+
+.car-card img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  max-height: 200px; /* ubah sesuai kebutuhan */
+  display: block;
 }
