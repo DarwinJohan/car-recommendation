@@ -2,6 +2,8 @@
 import { useState } from "react";
 import RecommendationPage from "../src/pages/RecommendationPage.jsx"
 import FilterPage from "../src/pages/FilterPage.jsx"
+import Car from "../src/pages/CarRecommendationApp.jsx"
+import CarRecommendationApp from "../src/pages/CarRecommendationApp.jsx";
 
 export default function Home() {
   const [input, setInput] = useState("");
@@ -20,7 +22,7 @@ export default function Home() {
   };
 
   return (
-    <FilterPage/> 
+    <CarRecommendationApp/> 
 
   );
 }
