@@ -1,4 +1,4 @@
-/* Section Container */
+
 .recommendation-section {
   padding: 5rem 1rem;
   background-color: #111827;
@@ -12,7 +12,6 @@
   margin: 0 auto;
 }
 
-/* Header */
 .section-header {
   text-align: center;
   margin-bottom: 3rem;
@@ -34,7 +33,7 @@
   font-size: 1.125rem;
 }
 
-/* Form Controls */
+
 .recommendation-form {
   display: grid;
   gap: 1rem;
@@ -62,7 +61,6 @@
   box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.3);
 }
 
-/* Price Filter Wrapper */
 .price-filter-group {
   display: flex;
   gap: 0.5rem;
@@ -73,7 +71,6 @@
   flex: 1;
 }
 
-/* Button */
 .recommendation-button {
   display: inline-block;
   background-color: #0ea5e9;
@@ -97,7 +94,6 @@
   display: grid;
   gap: 1.5rem;
   grid-template-columns: repeat(2, 1fr);
-  /* supaya 2 kartu per baris */
 }
 
 
@@ -159,7 +155,7 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   display: flex;
   flex-direction: column;
-  height: 320px; /* fix tinggi box */
+  height: 320px; 
 }
 
 .car-card img {
@@ -177,7 +173,7 @@
   padding: 0.75rem 1rem;
   background-color: #374151;
   border-bottom: 1px solid #4b5563;
-  height: 50px; /* fix tinggi header */
+  height: 50px; 
   overflow: hidden;
 }
 
@@ -224,7 +220,7 @@
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   width: 100%;
-  height: 320px;  /* fixed height */
+  height: 320px;  
   display: flex;
   flex-direction: column;
 }
@@ -254,7 +250,7 @@
   margin: 0;
   white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis; /* Ini yang memotong teks */
+  text-overflow: ellipsis; 
   max-width: 70%;
 }
 

@@ -137,7 +137,6 @@ def recommend_car(user_input, top_n=5):
         "Make", "Model", "Fuel Type", "Transmission", "Color", "Seating Capacity", "Engine", "Price", "Year"
     ]]
 
-# Jika dijalankan langsung
 if __name__ == "__main__":
     import sys
     user_input = sys.argv[1] if len(sys.argv) > 1 else "I want a petrol automatic car with 5 seats"
